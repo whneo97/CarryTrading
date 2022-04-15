@@ -324,6 +324,7 @@ def execute_carry_trade_returns_prediction_model(model, dfs, hyperparams={}):
     num_iterations = len(dfs)
     if len(hyperparam_combis) > 1:
         num_iterations = (len(hyperparam_combis) + 1) * len(dfs) 
+        timer = Timer(num_iterations)
         best_combi = execute_training_phase(model, hyperparam_combis, train_and_validate_dfs, returns, timer)
     elif len(hyperparam_combis) == 1:
         best_combi = hyperparam_combis[0]
